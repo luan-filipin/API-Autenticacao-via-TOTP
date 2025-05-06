@@ -7,6 +7,7 @@ public class UserDto {
 	
 	//Atributos.
     private String email;
+    private String password;
     private String secretKey;   
 }
 
