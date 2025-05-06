@@ -17,6 +17,7 @@ import br.com.APIAuth.TOTP.dto.UserDto;
 import br.com.APIAuth.TOTP.model.User;
 import br.com.APIAuth.TOTP.repository.UserRepository;
 import br.com.APIAuth.TOTP.service.UserService;
+import br.com.APIAuth.TOTP.service.UserServiceImp;
 import br.com.APIAuth.TOTP.util.QRCodeGenerator;
 import br.com.APIAuth.TOTP.util.TotpUtil;
 
