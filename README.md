@@ -21,9 +21,36 @@ Sistema de geração de QR Code TOTP com Spring Boot, utilizando o padrão otpau
 
 ## 📡 Endpoint principal
 
+Cadastrar usuario.
+- `POST /api/auth/register`
+```
+{
+  "email": "usuario@example.com",
+  "password": "JBSWY3DPEHPK3PXP",
+}
+``` 
+
+
 QR Code TOTP
-- `GET /api/auth/qrcode?email=seuemail@exemplo.com`   
+- `POST /api/auth/qrcode`
+```
+{
+  "email": "usuario@example.com",
+  "password": "JBSWY3DPEHPK3PXP",
+}
+``` 
   Gera e retorna uma imagem PNG com o QR Code da chave secreta associada ao email informado.
+
+
+Logar e testar o codigo OTP.
+- `POST /api/auth/login`
+```
+{
+  "email": "usuario@example.com",
+  "password": "JBSWY3DPEHPK3PXP",
+  "totpCode": "codigo OTP"
+}
+``` 
 
 ## 🗄️ Persistência de dados com MongoDB
 A aplicação utiliza MongoDB como banco de dados para armazenar informações relacionadas à autenticação TOTP, como o e-mail do usuário e a chave secreta gerada.
@@ -32,6 +59,7 @@ A integração é feita com Spring Data MongoDB, permitindo salvar e consultar d
 {
   "id": "661fbdafc4e96c0712b4e123",
   "email": "usuario@example.com",
+  "password": "$2a$10$LJBAnEsb4NeXuRSHTMw8remfHnCA9AA2iO9LT8KpifcTxHQC4sh2O"
   "secretKey": "JBSWY3DPEHPK3PXP",
   "verified": false
 }
