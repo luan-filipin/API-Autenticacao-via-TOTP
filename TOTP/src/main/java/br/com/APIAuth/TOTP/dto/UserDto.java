@@ -1,16 +1,12 @@
 package br.com.APIAuth.TOTP.dto;
 
+import lombok.Data;
+
+@Data
 public class UserDto {
+	
+	//Atributos.
     private String email;
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-    
+    private String secretKey;   
 }
 
