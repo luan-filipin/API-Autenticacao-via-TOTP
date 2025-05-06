@@ -8,6 +8,7 @@ Sistema de geração de QR Code TOTP com Spring Boot, utilizando o padrão otpau
 - Geração de imagem QR Code diretamente via backend
 - Retorno do QR Code em formato PNG
 - Estrutura organizada em camadas: Controller, Util, Model
+- Salva os dados de email e secretKey do usuario no MongoDb.
 
 ## 🛠️ Tecnologias utilizadas
 
@@ -16,6 +17,7 @@ Sistema de geração de QR Code TOTP com Spring Boot, utilizando o padrão otpau
 - Biblioteca Google Authenticator Java
 - ZXing (para gerar o QR Code)
 - Maven
+- MongoDB
 
 ## 📡 Endpoint principal
 
