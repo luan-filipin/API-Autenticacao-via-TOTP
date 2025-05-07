@@ -64,7 +64,13 @@ A integração é feita com Spring Data MongoDB, permitindo salvar e consultar d
   "verified": false
 }
 ```
-🔹 Exemplo de dado salvo:
+
+
+
+## Swagger
+Link de acesso: http://localhost:8080/swagger-ui/index.html#/
+
+![image](https://github.com/user-attachments/assets/c11be814-14ba-47cb-9ac3-44094223330a)
 
 ## ✅ Exemplo de uso
 
