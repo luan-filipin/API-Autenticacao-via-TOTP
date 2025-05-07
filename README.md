@@ -72,9 +72,5 @@ Link de acesso: http://localhost:8080/swagger-ui/index.html#/
 
 ![image](https://github.com/user-attachments/assets/c11be814-14ba-47cb-9ac3-44094223330a)
 
-## ✅ Exemplo de uso
 
-Faça uma requisição para o endpoint informando o email via parâmetro email.
-O QR Code retornado pode ser escaneado com apps como Microsoft Authenticator ou Google Authenticator.
-O app irá começar a gerar códigos TOTP automaticamente.
 
