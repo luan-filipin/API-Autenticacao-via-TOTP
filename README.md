@@ -78,8 +78,3 @@ Faça uma requisição para o endpoint informando o email via parâmetro email.
 O QR Code retornado pode ser escaneado com apps como Microsoft Authenticator ou Google Authenticator.
 O app irá começar a gerar códigos TOTP automaticamente.
 
-## ⚠️ Observações
-
-Este projeto ainda não implementa autenticação nem persistência em banco.
-As informações geradas (email e chave secreta) não são armazenadas — isso será incluído nas próximas etapas.
-A chave secreta é temporária e gerada a cada requisição para fins de teste.
