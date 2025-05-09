@@ -64,16 +64,13 @@ A integração é feita com Spring Data MongoDB, permitindo salvar e consultar d
   "verified": false
 }
 ```
-🔹 Exemplo de dado salvo:
 
-## ✅ Exemplo de uso
 
-Faça uma requisição para o endpoint informando o email via parâmetro email.
-O QR Code retornado pode ser escaneado com apps como Microsoft Authenticator ou Google Authenticator.
-O app irá começar a gerar códigos TOTP automaticamente.
 
-## ⚠️ Observações
+## Swagger
+Link de acesso: http://localhost:8080/swagger-ui/index.html#/
 
-Este projeto ainda não implementa autenticação nem persistência em banco.
-As informações geradas (email e chave secreta) não são armazenadas — isso será incluído nas próximas etapas.
-A chave secreta é temporária e gerada a cada requisição para fins de teste.
+![image](https://github.com/user-attachments/assets/c11be814-14ba-47cb-9ac3-44094223330a)
+
+
+
