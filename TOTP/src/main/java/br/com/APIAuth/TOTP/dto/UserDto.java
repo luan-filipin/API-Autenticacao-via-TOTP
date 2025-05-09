@@ -1,8 +1,10 @@
 package br.com.APIAuth.TOTP.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
+@AllArgsConstructor
 public class UserDto {
 	
 	//Atributos.

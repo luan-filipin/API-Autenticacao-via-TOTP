@@ -62,7 +62,7 @@ public class TotpController {
 	        byte[] qrImage = QRCodeGenerator.generateQRCodeImage(otpAuthURL, 200, 200);
 
 	        // Atualizar a chave secreta do usuário no banco de dados
-	        UserDto userDto = new UserDto();
+	        UserDto userDto = new UserDto(user.getEmail(), user.getPassword(), key.getKey());
 	        userDto.setSecretKey(key.getKey());
 	        userService.updateUser(user.getEmail(), userDto);
 

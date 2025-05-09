@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import br.com.APIAuth.TOTP.dto.UserDto;
@@ -15,11 +16,15 @@ import br.com.APIAuth.TOTP.repository.UserRepository;
 @Service
 public class UserServiceImp implements UserService {
 
-	@Autowired
-	private UserRepository userRepository; // Injeção de dependência do repositório de usuários.
+	private final UserRepository userRepository; // Injeção de dependência do repositório de usuários.
+	private final PasswordEncoder passwordEncoder;
 	
-	private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(); // Cria um objeto para codificar a senha.
-
+   
+    public UserServiceImp(PasswordEncoder passwordEncoder, UserRepository userRepository) {
+        this.passwordEncoder = passwordEncoder;
+        this.userRepository = userRepository;
+    }
+    
 	public User saveUser(UserDto userDto) {
 		
 	    if (userRepository.existsByEmail(userDto.getEmail())) {
