@@ -10,19 +10,22 @@ import org.springframework.stereotype.Service;
 
 import br.com.APIAuth.TOTP.dto.UserDto;
 import br.com.APIAuth.TOTP.exception.EmailAlreadyExistsException;
+import br.com.APIAuth.TOTP.mapper.UserMapper;
 import br.com.APIAuth.TOTP.model.User;
 import br.com.APIAuth.TOTP.repository.UserRepository;
 
 @Service
 public class UserServiceImp implements UserService {
 
-	private final UserRepository userRepository; // Injeção de dependência do repositório de usuários.
+	private final UserRepository userRepository; 
 	private final PasswordEncoder passwordEncoder;
+	private final UserMapper userMapper;
 	
    
-    public UserServiceImp(PasswordEncoder passwordEncoder, UserRepository userRepository) {
+    public UserServiceImp(PasswordEncoder passwordEncoder, UserRepository userRepository, UserMapper userMapper) {
         this.passwordEncoder = passwordEncoder;
         this.userRepository = userRepository;
+        this.userMapper = userMapper;
     }
     
 	public User saveUser(UserDto userDto) {
@@ -31,13 +34,13 @@ public class UserServiceImp implements UserService {
 	        throw new EmailAlreadyExistsException("Usuário com esse e-mail já está cadastrado.");
 	    }
 		
-		User user = new User();
-		user.setEmail(userDto.getEmail()); // Define o email do usuário.
-		user.setSecretKey(userDto.getSecretKey()); // Define a chave secreta do usuário.
-		user.setPassword(passwordEncoder.encode(userDto.getPassword())); // Define a senha do usuário.
-		user.setVerified(false); // Define o status de verificação do usuário como falso.
-
-		return userRepository.save(user); // Salva o usuário no banco de dados.
+	    User user = userMapper.toEntity(userDto); // Mapeia o DTO para a entidade User.
+	    user.setEmail(userDto.getEmail()); // Define o email do usuário.
+	    user.setSecretKey(userDto.getSecretKey()); // Define a chave secreta do usuário.
+	    user.setPassword(passwordEncoder.encode(userDto.getPassword())); // Codifica a senha.
+	    user.setVerified(false); // Define o status de verificação do usuário como falso.
+		
+	    return userRepository.save(user); // Salva o usuário no banco de dados.
 	}
 
 	@Override
